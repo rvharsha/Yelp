@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RestaurantsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, FilterViewControllerDelegate {
+class RestaurantsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, FilterViewControllerDelegate, UISearchBarDelegate {
 
     // You can register for Yelp API keys here: http://www.yelp.com/developers/manage_api_keys
     let yelpConsumerKey = "KhP7fy8cGpj4EsR3C_Z_FA"
@@ -20,13 +20,26 @@ class RestaurantsViewController: UIViewController, UITableViewDataSource, UITabl
     var client: YelpClient!
     var restaurants : [Restaurant] = []
     
+    
+    @IBOutlet weak var restaurantSearchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchUIView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        restaurantSearchBar.delegate = self
         
-        loadYelpData()
+        loadYelpData("thai")
+        self.navigationController!.navigationBar.barStyle = UIBarStyle.BlackTranslucent
+        self.navigationController!.navigationBar.tintColor = UIColor(red: 196.0/255.0, green: 18.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+        self.navigationController!.navigationBar.barTintColor = UIColor(red: 196.0/255.0, green: 18.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+        //searchUIView.backgroundColor = UIColor.redColor()
+        
+        restaurantSearchBar.tintColor =  UIColor(red: 196.0/255.0, green: 18.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+        restaurantSearchBar.barTintColor =  UIColor(red: 196.0/255.0, green: 18.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+        
         //self.tableView.reloadData()
         // Do any additional setup after loading the view.
     }
@@ -47,9 +60,9 @@ class RestaurantsViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     
-    func loadYelpData() {
+    func loadYelpData(query: String) {
         client =  YelpClient(consumerKey: self.yelpConsumerKey, consumerSecret: self.yelpConsumerSecret, accessToken: self.yelpToken, accessSecret: self.yelpTokenSecret)
-        client.searchWithTerm("Thai", success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+        client.searchWithTerm(query, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
             //println(response)
             var restaurantDictionaries = response["businesses"] as [NSDictionary]
             
@@ -62,6 +75,10 @@ class RestaurantsViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
 
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        loadYelpData(restaurantSearchBar.text)
+    }
 
     
     // MARK: - Navigation

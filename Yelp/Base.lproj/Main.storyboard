@@ -26,31 +26,34 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OLw-4u-EOl" id="84P-9i-bIT">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="30 mi" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8l-Cr-kLA">
-                                                    <rect key="frame" x="530" y="11" width="60" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bmp-JR-xZj">
-                                                    <rect key="frame" x="20" y="10" width="70" height="70"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bmp-JR-xZj">
+                                                    <rect key="frame" x="20" y="12" width="70" height="70"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="70" id="6iV-s0-do3"/>
                                                         <constraint firstAttribute="width" constant="70" id="Lyt-dr-0m7"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPG-Y5-jdn">
-                                                    <rect key="frame" x="98" y="18" width="93" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPG-Y5-jdn">
+                                                    <rect key="frame" x="98" y="21" width="202" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="30 mi" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8l-Cr-kLA">
+                                                    <rect key="frame" x="532" y="19" width="60" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="WPG-Y5-jdn" firstAttribute="top" secondItem="84P-9i-bIT" secondAttribute="top" constant="20" id="4Tm-1y-Pqo"/>
+                                                <constraint firstItem="N8l-Cr-kLA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WPG-Y5-jdn" secondAttribute="trailing" constant="5" id="Fdg-2a-dbT"/>
+                                                <constraint firstAttribute="trailing" secondItem="N8l-Cr-kLA" secondAttribute="trailing" constant="10" id="Jpe-Lc-Ozo"/>
                                                 <constraint firstItem="Bmp-JR-xZj" firstAttribute="leading" secondItem="84P-9i-bIT" secondAttribute="leading" constant="20" id="NLc-Nc-D3v"/>
-                                                <constraint firstItem="N8l-Cr-kLA" firstAttribute="top" secondItem="84P-9i-bIT" secondAttribute="top" constant="10" id="Y33-Qi-re0"/>
                                                 <constraint firstItem="Bmp-JR-xZj" firstAttribute="top" secondItem="84P-9i-bIT" secondAttribute="top" constant="10" id="c0u-7f-ZlQ"/>
-                                                <constraint firstAttribute="trailing" secondItem="N8l-Cr-kLA" secondAttribute="trailing" constant="10" id="i0D-D8-CCb"/>
+                                                <constraint firstItem="WPG-Y5-jdn" firstAttribute="leading" secondItem="Bmp-JR-xZj" secondAttribute="trailing" constant="8" id="cR2-zS-PLe"/>
+                                                <constraint firstItem="N8l-Cr-kLA" firstAttribute="top" secondItem="84P-9i-bIT" secondAttribute="top" constant="18" id="sp4-Kp-tEj"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -70,19 +73,42 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZZF-qT-cT8">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="Filter" id="b90-at-5UB">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="b5z-kM-SPN" kind="presentation" id="b2d-9T-mSL"/>
                             </connections>
                         </barButtonItem>
+                        <view key="titleView" opaque="NO" alpha="0.0" contentMode="scaleToFill" id="iqR-Bw-v2H">
+                            <rect key="frame" x="200" y="8" width="200" height="28"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IU0-6P-0sq">
+                                    <rect key="frame" x="-10" y="-8" width="220" height="44"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
+                            </subviews>
+                        </view>
                     </navigationItem>
                     <connections>
+                        <outlet property="restaurantSearchBar" destination="IU0-6P-0sq" id="9Bx-Tf-4s9"/>
+                        <outlet property="searchDisplayController" destination="cNN-o8-zvG" id="ise-rX-wSW"/>
+                        <outlet property="searchUIView" destination="iqR-Bw-v2H" id="4Or-ki-mjd"/>
                         <outlet property="tableView" destination="61G-OR-pxZ" id="CZh-tj-RLY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v3k-ne-dqS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="cNN-o8-zvG">
+                    <connections>
+                        <outlet property="delegate" destination="8Ax-8r-BwV" id="3oS-qN-zhT"/>
+                        <outlet property="searchContentsController" destination="8Ax-8r-BwV" id="9CX-Up-Fxt"/>
+                        <outlet property="searchResultsDataSource" destination="8Ax-8r-BwV" id="guF-bP-TSb"/>
+                        <outlet property="searchResultsDelegate" destination="8Ax-8r-BwV" id="l19-e9-NVd"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="860" y="60"/>
+            <point key="canvasLocation" x="992" y="57"/>
         </scene>
         <!--Filter View Controller-->
         <scene sceneID="hgU-3c-1dT">
@@ -100,7 +126,7 @@
                                 <rect key="frame" x="0.0" y="13" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="101" id="yF7-Rg-euc">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilterCell" rowHeight="101" id="yF7-Rg-euc" customClass="FilterCell" customModule="Yelp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yF7-Rg-euc" id="HSP-g9-9ic">
@@ -130,6 +156,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="filterTableView" destination="SQn-04-ERa" id="Yxs-ai-yaQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xL0-Nf-26y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

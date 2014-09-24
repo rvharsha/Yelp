@@ -28,7 +28,12 @@ class RestaurantCell: UITableViewCell {
     
     override func layoutSubviews() {
         nameLabel.text = restaurant.name
-        thumbView.setImageWithURL(NSURL(string : restaurant.thumbUrl))
+        if let listingImageUrl = restaurant.thumbUrl {
+            thumbView.setImageWithURL(NSURL(string : listingImageUrl))
+            thumbView.layer.cornerRadius = 5
+            thumbView.clipsToBounds = true;
+        }
+
     }
 
 }

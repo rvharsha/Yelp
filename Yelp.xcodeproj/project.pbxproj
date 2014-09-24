@@ -18,6 +18,7 @@
 		D6C4F72619D1CB9A0075A39D /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4F72519D1CB9A0075A39D /* RestaurantCell.swift */; };
 		D6C4F72819D1CF7E0075A39D /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4F72719D1CF7E0075A39D /* Restaurant.swift */; };
 		D6C4F72A19D250520075A39D /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4F72919D250520075A39D /* FilterViewController.swift */; };
+		D6D6104419D29A88001FA690 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6104319D29A88001FA690 /* FilterCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		D6C4F72519D1CB9A0075A39D /* RestaurantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantCell.swift; sourceTree = "<group>"; };
 		D6C4F72719D1CF7E0075A39D /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		D6C4F72919D250520075A39D /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		D6D6104319D29A88001FA690 /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		D99E9A2867E447C1BCB356CC /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		DBACDF3B5112465AB6DED32B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				D6C4F72519D1CB9A0075A39D /* RestaurantCell.swift */,
+				D6D6104319D29A88001FA690 /* FilterCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6D6104419D29A88001FA690 /* FilterCell.swift in Sources */,
 				D6C4F72A19D250520075A39D /* FilterViewController.swift in Sources */,
 				D6C4F72819D1CF7E0075A39D /* Restaurant.swift in Sources */,
 				D6C4F72619D1CB9A0075A39D /* RestaurantCell.swift in Sources */,
