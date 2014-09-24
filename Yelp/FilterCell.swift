@@ -10,6 +10,16 @@ import UIKit
 
 class FilterCell: UITableViewCell {
 
+    @IBOutlet weak var filterSwitch: UISwitch!
+    @IBOutlet weak var filterLabel: UILabel!
+    
+    var filterViewDelegate:FilterViewControllerDelegate?
+    
+    @IBAction func onSwitchChangeAction(sender: UISwitch) {
+        println("In Filter Cell")
+        filterViewDelegate?.dealsFilterSet(sender.on)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

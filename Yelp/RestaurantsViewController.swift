@@ -16,6 +16,9 @@ class RestaurantsViewController: UIViewController, UITableViewDataSource, UITabl
     let yelpToken = "LImjtVlZf4tvFFEgBGO7YsWGQJmU_m52"
     let yelpTokenSecret = "Ay-oYF6wvoaCvmOzM3SIGhUop4k"
     
+    var isDealFilterSet = false
+    var query = "Thai"
+    
     // Yelp API Client
     var client: YelpClient!
     var restaurants : [Restaurant] = []
@@ -31,7 +34,7 @@ class RestaurantsViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.dataSource = self
         restaurantSearchBar.delegate = self
         
-        loadYelpData("thai")
+        loadYelpData()
         self.navigationController!.navigationBar.barStyle = UIBarStyle.BlackTranslucent
         self.navigationController!.navigationBar.tintColor = UIColor(red: 196.0/255.0, green: 18.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         self.navigationController!.navigationBar.barTintColor = UIColor(red: 196.0/255.0, green: 18.0/255.0, blue: 0.0/255.0, alpha: 1.0)
@@ -60,9 +63,9 @@ class RestaurantsViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     
-    func loadYelpData(query: String) {
+    func loadYelpData() {
         client =  YelpClient(consumerKey: self.yelpConsumerKey, consumerSecret: self.yelpConsumerSecret, accessToken: self.yelpToken, accessSecret: self.yelpTokenSecret)
-        client.searchWithTerm(query, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+        client.searchWithTerm(self.query, dealsFilter: self.isDealFilterSet, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
             //println(response)
             var restaurantDictionaries = response["businesses"] as [NSDictionary]
             
@@ -77,7 +80,8 @@ class RestaurantsViewController: UIViewController, UITableViewDataSource, UITabl
 
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        loadYelpData(restaurantSearchBar.text)
+        self.query = restaurantSearchBar.text
+        loadYelpData()
     }
 
     
@@ -94,7 +98,12 @@ class RestaurantsViewController: UIViewController, UITableViewDataSource, UITabl
     
     
     func searchTermDidChange() {
-        println("Search Term Changed")
+        loadYelpData()
+    }
+    
+    func dealsFilterSet(is_set : Bool ) {
+        println("Deals being set \(is_set)")
+        self.isDealFilterSet = is_set
     }
     
 

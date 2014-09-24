@@ -10,6 +10,7 @@ import UIKit
 
 protocol FilterViewControllerDelegate {
     func searchTermDidChange()
+    func dealsFilterSet(is_set : Bool )
 }
 
 class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -29,8 +30,12 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("FilterCell") as FilterCell
-        cell.section = indexPath.section
-        cell.row = indexPath.row
+        cell.filterLabel.text = "Offering Deals"
+        cell.filterViewDelegate = delegate
+        cell.filterSwitch.setOn(false, animated: true)
+        //cell.section = indexPath.section
+        //cell.row = indexPath.row
+        
         
         return cell
     }
@@ -47,7 +52,7 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         var headerView = UIView(frame: CGRect(x:0, y:0, width: 320, height: 40))
         headerView.backgroundColor = UIColor.whiteColor()
         var headerLabel = UILabel(frame: CGRect(x:10, y:0, width:320, height: 40))
-        headerLabel.text = "Category"
+        headerLabel.text = "Deals"
         headerView.addSubview(headerLabel)
         return headerView
     }
@@ -65,6 +70,11 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func onSearchAction(sender: AnyObject) {
         self.delegate?.searchTermDidChange()
         dismissViewControllerAnimated(false, completion: nil)
+    }
+    
+    func dealsFilterSet(is_set : Bool ) {
+        println("In Filter View Controller")
+        self.delegate?.dealsFilterSet(is_set)
     }
     /*
     // MARK: - Navigation
