@@ -33,10 +33,6 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.filterLabel.text = "Offering Deals"
         cell.filterViewDelegate = delegate
         cell.filterSwitch.setOn(false, animated: true)
-        //cell.section = indexPath.section
-        //cell.row = indexPath.row
-        
-        
         return cell
     }
     
