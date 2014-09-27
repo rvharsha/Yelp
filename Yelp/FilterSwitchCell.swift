@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FilterCell: UITableViewCell {
+class FilterSwitchCell: UITableViewCell {
 
     @IBOutlet weak var filterSwitch: UISwitch!
     @IBOutlet weak var filterLabel: UILabel!

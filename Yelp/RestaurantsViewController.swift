@@ -59,6 +59,7 @@ class RestaurantsViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("RestaurantCell") as RestaurantCell
         cell.restaurant = self.restaurants[indexPath.row]
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
         return cell
     }
     
